@@ -10,7 +10,7 @@ import (
 // Then use viper.Get('xxxx') can get the variable
 func Init() {
 	viper.SetConfigType("toml")
-	viper.AddConfigPath("./config")
+	viper.AddConfigPath("./configs")
 	viper.SetConfigName("default")
 	err := viper.ReadInConfig() // Find and read the config file
 	if err != nil {             // Handle errors reading the config file
