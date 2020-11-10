@@ -5,6 +5,9 @@ import (
 	"github.com/spf13/viper"
 )
 
+// Init use viper to read the root path /configs xxx.toml file.
+// First use this function to init viper
+// Then use viper.Get('xxxx') can get the variable
 func Init() {
 	viper.SetConfigType("toml")
 	viper.AddConfigPath("./config")
