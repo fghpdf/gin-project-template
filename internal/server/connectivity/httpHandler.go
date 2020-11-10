@@ -1,4 +1,4 @@
-package ping
+package connectivity
 
 import (
 	"github.com/gin-gonic/gin"
@@ -6,12 +6,13 @@ import (
 	"net/http"
 )
 
-// Ping web http handler for ping
+// Ping web http handler for connectivity
 func Ping(c *gin.Context) {
 	svc := NewServer()
 	res, err := svc.Ping()
 	if err != nil {
-		log.Errorf("[ping][httpHandler][Ping] svc.Ping error:%v", err)
+		log.Errorf("[connectivity][httpHandler][Ping] svc.Ping error:%v", err)
+		_ = c.Error(err)
 	}
 
 	c.JSON(http.StatusOK, res)

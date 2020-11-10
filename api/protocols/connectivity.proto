@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package="internal/server/connectivity/pb";
+
+package Connectivity;
+
+service Connectivity {
+  rpc Ping (PingRequest) returns (PingReply) {}
+}
+
+message PingRequest {
+}
+
+message PingReply {
+  string status = 1;
+}

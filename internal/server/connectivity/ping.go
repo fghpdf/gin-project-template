@@ -1,4 +1,4 @@
-package ping
+package connectivity
 
 type Model struct {
 	Status string `json:"status"`
