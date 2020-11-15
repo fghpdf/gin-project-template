@@ -16,7 +16,7 @@ func main() {
 
 	routers := app.Group("/api")
 
-	routers.GET("/connectivity", connectivity.Ping)
+	routers.GET("/ping", connectivity.Ping)
 
 	err := app.Run()
 	if err != nil {

@@ -2,7 +2,9 @@ package main
 
 import (
 	"context"
+	"fghpdf.me/gin-project-template/internal/pkg/ctxType"
 	"fghpdf.me/gin-project-template/internal/server/connectivity/pb"
+	"github.com/google/uuid"
 	"log"
 	"time"
 
@@ -25,6 +27,9 @@ func main() {
 	// Contact the server and print out its response.
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
+
+	ctx = ctxType.WithRequestIdIntoMetadata(ctx, uuid.New().String())
+
 	r, err := c.Ping(ctx, &pb.PingRequest{})
 	if err != nil {
 		log.Fatalf("could not check: %v", err)

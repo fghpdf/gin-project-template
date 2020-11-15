@@ -1,2 +1,5 @@
 [db]
 host = "http://localhost"
+
+[http]
+default_timeout = 60
